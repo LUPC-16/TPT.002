@@ -1,0 +1,230 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Generales_SepararArchivoUUIDS" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Dividir" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_Entero" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_dt_TablaExcel" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_RutaExcel" Type="InArgument(x:String)" />
+    <x:Property Name="in_Archivo" Type="InArgument(x:String)" />
+    <x:Property Name="out_NombreExcel" Type="OutArgument(x:String)" />
+    <x:Property Name="in_NumeroDivision" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <this:Generales_SepararArchivoUUIDS.in_Dividir>
+    <InArgument x:TypeArguments="x:Boolean" />
+  </this:Generales_SepararArchivoUUIDS.in_Dividir>
+  <this:Generales_SepararArchivoUUIDS.in_Entero>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Generales_SepararArchivoUUIDS.in_Entero>
+  <this:Generales_SepararArchivoUUIDS.in_dt_TablaExcel>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:Generales_SepararArchivoUUIDS.in_dt_TablaExcel>
+  <this:Generales_SepararArchivoUUIDS.in_RutaExcel>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Generales_SepararArchivoUUIDS.in_RutaExcel>
+  <this:Generales_SepararArchivoUUIDS.in_Archivo>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Generales_SepararArchivoUUIDS.in_Archivo>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>995,1933</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Generales_SepararArchivoUUIDS_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="30">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="TPT.002.004 Convertir y separar archivo txt UUID&#xA;&#xA;Descripcion: El Bot  convierte cada unos de los archivos de UUID. Txt en formato excel y valida que no excedan el limite de filas que soporta excel.&#xA;En caso de que excedan las filas procede a partir el archivo.&#xA;" DisplayName="Excel_SepararArchivoUUIDS" sap:VirtualizedContainerService.HintSize="1005,1868" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="Indice" />
+      <Variable x:TypeArguments="x:String" Name="NameExcel" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message inicia secuencia serparar archvos" sap:VirtualizedContainerService.HintSize="943,116" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicia:Excel_SepararArchivoUUIDS&quot;]" />
+    <If Condition="[in_Dividir]" DisplayName="Si los archivos superan el limite" sap:VirtualizedContainerService.HintSize="943,1165" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <ui:ForEach x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="" CurrentIndex="[Indice]" DisplayName="Recorre tamaño de tabla para dividir por archivos " sap:VirtualizedContainerService.HintSize="467,997" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Enumerable.Range(1,in_Entero).ToArray()]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="x:Int32">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Int32" Name="Repeticion" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Dividir archivos grandes " sap:VirtualizedContainerService.HintSize="431,832" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="sd:DataTable" Name="dt_TablaTemporal" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Asigna Tabla temporal el indice" sap:VirtualizedContainerService.HintSize="369,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="sd:DataTable">[dt_TablaTemporal]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="sd:DataTable">[if(Indice+1 = in_Entero,in_dt_TablaExcel.AsEnumerable.Skip(Indice*in_NumeroDivision).Take(in_dt_TablaExcel.Rows.Count).CopyToDatatable(),in_dt_TablaExcel.AsEnumerable.Skip(Indice* in_NumeroDivision).Take(in_NumeroDivision).CopyToDatatable())]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign DisplayName="Nombre de archivos uuids" sap:VirtualizedContainerService.HintSize="369,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[NameExcel]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[in_RutaExcel+Path.GetFileNameWithoutExtension(in_Archivo).ToString+"_Parte"+(Indice+1).ToString+".xlsx"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Generales_LecturaArchivosPagos workflow" sap:VirtualizedContainerService.HintSize="369,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Modulos\Excel\Excel_LecturaArchivosPagos.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TablaExcel">[dt_TablaTemporal]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_NameExcel">[NameExcel]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <ui:ClearDataTable DataTable="[dt_TablaTemporal]" DisplayName="Limpia tabla temporal  de archivos " sap:VirtualizedContainerService.HintSize="369,89" sap2010:WorkflowViewState.IdRef="ClearDataTable_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ClearDataTable>
+                <Delay sap2010:Annotation.AnnotationText="Se utiliza un tiempo por el tamaño del archivo para poder procesar bien la info." DisplayName="Tiempo de espera para archivos UUIDS" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="369,89" sap2010:WorkflowViewState.IdRef="Delay_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Delay>
+                <Assign DisplayName="Obtiene el nombre del excel" sap:VirtualizedContainerService.HintSize="369,70" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_NombreExcel]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[NameExcel]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:ForEach>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Copia datos " sap:VirtualizedContainerService.HintSize="431,620" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message Archivos pagos" sap:VirtualizedContainerService.HintSize="369,116" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Archivos pagos&quot;]" />
+          <Assign DisplayName="Nombre del excel completo " sap:VirtualizedContainerService.HintSize="369,70" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[NameExcel]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[in_RutaExcel+Path.GetFileNameWithoutExtension(in_Archivo).ToString+".xlsx"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Generales_LecturaArchivosPagos workflow" sap:VirtualizedContainerService.HintSize="369,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Modulos\Excel\Excel_LecturaArchivosPagos.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TablaExcel">[in_dt_TablaExcel]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_NameExcel">[NameExcel]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <Assign DisplayName="Obtiene nombre y ruta de excel" sap:VirtualizedContainerService.HintSize="369,70" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[out_NombreExcel]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[NameExcel]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" AppliesTo="All" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="943,142" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Excel" />
+    <ui:LogMessage DisplayName="Log Message finaliza secuencia separar archivos" sap:VirtualizedContainerService.HintSize="943,116" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Finaliza:Excel_SepararArchivosUUIDS&quot;]" />
+  </Sequence>
+</Activity>
