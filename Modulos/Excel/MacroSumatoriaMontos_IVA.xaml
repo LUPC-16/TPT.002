@@ -6,6 +6,7 @@
     <x:Property Name="in_RutaCobranzaFinal" Type="InArgument(x:String)" />
     <x:Property Name="dt_MX_NORTE" Type="InArgument(sd:DataTable)" />
     <x:Property Name="dt_MX" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <this:MacroSumatoriaMontos_IVA.dt_MX_NORTE>
     <InArgument x:TypeArguments="sd:DataTable" />
@@ -16,7 +17,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1410.4,3765.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1096,4339.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>MacroSumatoriaMontos_IVA_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -107,7 +108,7 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MacroSumatoriaMontos_IVA" sap:VirtualizedContainerService.HintSize="641.6,3700.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MacroSumatoriaMontos_IVA" sap:VirtualizedContainerService.HintSize="644,4274.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="NombreExcel" />
       <Variable x:TypeArguments="x:String" Name="File" />
@@ -120,15 +121,15 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="598.4,62.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicia:Macro Sumtoria Montos y IVA&quot;]">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="600.8,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicia:Macro Sumtoria Montos y IVA&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:KillProcess AppliesTo="{x:Null}" Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="598.4,144" sap2010:WorkflowViewState.IdRef="KillProcess_3" ProcessName="Excel">
+    <ui:KillProcess AppliesTo="{x:Null}" Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="600.8,144" sap2010:WorkflowViewState.IdRef="KillProcess_3" ProcessName="Excel">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -136,7 +137,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:KillProcess>
-    <ui:MultipleAssign DisplayName="Obtiene nombre de archivos y rutas " sap:VirtualizedContainerService.HintSize="598.4,141.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Obtiene nombre de archivos y rutas " sap:VirtualizedContainerService.HintSize="600.8,141.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -164,7 +165,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_RutaCobranzaFinal+path.GetFileNameWithoutExtension(File)+&quot;.xlsm&quot;]" DisplayName="Copiar plantilla macro" sap:VirtualizedContainerService.HintSize="598.4,164.8" sap2010:WorkflowViewState.IdRef="CopyFile_1" Path="[in_PlantillaMacro]">
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_RutaCobranzaFinal+path.GetFileNameWithoutExtension(File)+&quot;.xlsm&quot;]" DisplayName="Copiar plantilla macro" sap:VirtualizedContainerService.HintSize="600.8,164.8" sap2010:WorkflowViewState.IdRef="CopyFile_1" Path="[in_PlantillaMacro]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -172,7 +173,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CopyFile>
-    <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Abrir Plantilla Macro" sap:VirtualizedContainerService.HintSize="598.4,445.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000000" WorkbookPath="[in_RutaCobranzaFinal+path.GetFileNameWithoutExtension(File)+&quot;.xlsm&quot;]">
+    <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Abrir Plantilla Macro" sap:VirtualizedContainerService.HintSize="600.8,445.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000000" Visible="False" WorkbookPath="[in_RutaCobranzaFinal+path.GetFileNameWithoutExtension(File)+&quot;.xlsm&quot;]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -208,7 +209,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <ui:KillProcess Process="{x:Null}" AppliesTo="All" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="598.4,144" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Excel">
+    <ui:KillProcess Process="{x:Null}" AppliesTo="All" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="600.8,144" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Excel">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -216,23 +217,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:KillProcess>
-    <bes:DeleteSheet ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" ContinueOnError="False" Delay="3" DisplayName="Eliminar hoja MX" FilePath="[File]" sap:VirtualizedContainerService.HintSize="598.4,79.2" sap2010:WorkflowViewState.IdRef="DeleteSheet_3" SheetName="MX">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </bes:DeleteSheet>
-    <bes:DeleteSheet ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" ContinueOnError="False" Delay="3" DisplayName="Eliminar hoja MX_NORTE" FilePath="[File]" sap:VirtualizedContainerService.HintSize="598.4,79.2" sap2010:WorkflowViewState.IdRef="DeleteSheet_4" SheetName="MX_NORTE">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </bes:DeleteSheet>
-    <ui:KillProcess Process="{x:Null}" AppliesTo="All" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="598.4,144" sap2010:WorkflowViewState.IdRef="KillProcess_4" ProcessName="Excel">
+    <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="600.8,90.4" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[File]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Excel_LecturaUSD workflow" sap:VirtualizedContainerService.HintSize="600.8,123.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modulos\Excel\Excel_LecturaUSD.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_NombreExcel">[in_RutaCobranzaFinal+path.GetFileNameWithoutExtension(File)+".xlsm"]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:KillProcess Process="{x:Null}" AppliesTo="All" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="600.8,144" sap2010:WorkflowViewState.IdRef="KillProcess_4" ProcessName="Excel">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -240,32 +232,32 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:KillProcess>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Abrir Macro" sap:VirtualizedContainerService.HintSize="598.4,62.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000000" MacroSetting="ReadFromExcelSettings" WorkbookPath="[in_RutaCobranzaFinal+path.GetFileNameWithoutExtension(File)+&quot;.xlsm&quot;]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Abrir Macro" sap:VirtualizedContainerService.HintSize="600.8,540.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000000" MacroSetting="ReadFromExcelSettings" Visible="False" WorkbookPath="[in_RutaCobranzaFinal+path.GetFileNameWithoutExtension(File)+&quot;.xlsm&quot;]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="401.6,418.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="400,421.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExecuteMacro MacroOutput="{x:Null}" ContinueOnError="True" DisplayName="Ejecutar macro" sap:VirtualizedContainerService.HintSize="358.4,69.6" sap2010:WorkflowViewState.IdRef="ExecuteMacro_1" MacroName="[path.GetFileNameWithoutExtension(File)+&quot;.xlsm!Module1.MacroLibro&quot;]" />
-            <ui:ExcelCopySheet DestinationFilePath="[File]" DestinationSheetName="MX" DisplayName="Copiar hoja MX a archivo Original" sap:VirtualizedContainerService.HintSize="358.4,90.4" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_1" SheetName="MX" />
-            <ui:ExcelCopySheet DestinationFilePath="[File]" DestinationSheetName="MX_NORTE" DisplayName="Copiar hoja MX_NORTEa archivo Original" sap:VirtualizedContainerService.HintSize="358.4,90.4" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_2" SheetName="MX_NORTE" />
+            <ui:ExecuteMacro MacroOutput="{x:Null}" ContinueOnError="True" DisplayName="Ejecutar macro" sap:VirtualizedContainerService.HintSize="356.8,69.6" sap2010:WorkflowViewState.IdRef="ExecuteMacro_1" MacroName="[path.GetFileNameWithoutExtension(File)+&quot;.xlsm!Module1.MacroLibro&quot;]" />
+            <ui:ExcelCopySheet DestinationFilePath="[File]" DestinationSheetName="MX" DisplayName="Copiar hoja MX a archivo Original" sap:VirtualizedContainerService.HintSize="356.8,90.4" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_1" SheetName="MX" />
+            <ui:ExcelCopySheet DestinationFilePath="[File]" DestinationSheetName="MX_NORTE" DisplayName="Copiar hoja MX_NORTEa archivo Original" sap:VirtualizedContainerService.HintSize="356.8,90.4" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_2" SheetName="MX_NORTE" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <ui:ExcelApplicationScope InstanceCachePeriod="{x:Null}" Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Abrir Archivo Final" sap:VirtualizedContainerService.HintSize="598.4,242.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" ReadOnly="True" Visible="False" WorkbookPath="[File]">
+    <ui:ExcelApplicationScope InstanceCachePeriod="{x:Null}" Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Abrir Archivo Final" sap:VirtualizedContainerService.HintSize="600.8,242.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" ReadOnly="True" Visible="False" WorkbookPath="[File]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -289,7 +281,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Para cada" sap:VirtualizedContainerService.HintSize="598.4,1003.2" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Sheets]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Para cada" sap:VirtualizedContainerService.HintSize="600.8,1003.2" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Sheets]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
@@ -310,13 +302,7 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <bes:DeleteSheet ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" ContinueOnError="False" Delay="3" DisplayName="Elimina hoja 1 de archivos pagos y uuids" FilePath="[File]" sap:VirtualizedContainerService.HintSize="441.6,79.2" sap2010:WorkflowViewState.IdRef="DeleteSheet_6" SheetName="Sheet1">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </bes:DeleteSheet>
+                  <bes:DeleteSheet FilePassword="{x:Null}" ModifyPassword="{x:Null}" DisplayName="Delete Sheet ()" FilePath="[File]" sap:VirtualizedContainerService.HintSize="441.6,79.2" sap2010:WorkflowViewState.IdRef="DeleteSheet_1" SheetName="Sheet1" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -340,13 +326,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <bes:DeleteSheet ExecutionResult="{x:Null}" FilePassword="{x:Null}" ModifyPassword="{x:Null}" ContinueOnError="False" Delay="3" DisplayName="Elimina hoja 1 de archivos pagos y uuids" FilePath="[File]" sap:VirtualizedContainerService.HintSize="441.6,79.2" sap2010:WorkflowViewState.IdRef="DeleteSheet_5" SheetName="Hoja1">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </bes:DeleteSheet>
+                  <bes:DeleteSheet FilePassword="{x:Null}" ModifyPassword="{x:Null}" DisplayName="Delete Sheet ()" FilePath="[File]" sap:VirtualizedContainerService.HintSize="441.6,79.2" sap2010:WorkflowViewState.IdRef="DeleteSheet_2" SheetName="Hoja1" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -369,7 +349,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:KillProcess AppliesTo="{x:Null}" Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="598.4,144" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="Excel">
+    <ui:KillProcess AppliesTo="{x:Null}" Process="{x:Null}" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="600.8,144" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="Excel">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -377,7 +357,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:KillProcess>
-    <ui:DeleteFileX DisplayName="Elimina XlsM" sap:VirtualizedContainerService.HintSize="598.4,90.4" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[in_rutaCobranzaFinal+path.GetFileNameWithoutExtension(File)+&quot;.xlsm&quot;]">
+    <ui:DeleteFileX DisplayName="Elimina XlsM" sap:VirtualizedContainerService.HintSize="600.8,90.4" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[in_rutaCobranzaFinal+path.GetFileNameWithoutExtension(File)+&quot;.xlsm&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -385,7 +365,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:DeleteFileX>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="598.4,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Finaliza:Macro Sumtoria Montos y IVA&quot;]">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="600.8,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Finaliza:Macro Sumtoria Montos y IVA&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>

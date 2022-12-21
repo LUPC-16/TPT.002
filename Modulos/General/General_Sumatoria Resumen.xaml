@@ -1,0 +1,480 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="General_Sumatoria_Resumen" this:General_Sumatoria_Resumen.in_Sheet="MX" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_RutaResumen" Type="InArgument(x:String)" />
+    <x:Property Name="in_Sheet" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1480,9778.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>General_Sumatoria_Resumen_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="31">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="General_Sumatoria_Resumen" sap:VirtualizedContainerService.HintSize="976.8,9713.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:WorkbookApplication" Name="Close" />
+      <Variable x:TypeArguments="x:Boolean" Name="ExisteHoja" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_SheetResumen" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Lectura de Archivos excel" sap:VirtualizedContainerService.HintSize="933.6,4084" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Workbook="[Close]" WorkbookPath="[in_RutaResumen]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Obtiene nombre de las hojas de archivo excel" sap:VirtualizedContainerService.HintSize="561.6,3964.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="scg:List(x:String)" Name="SheetsResumen" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelGetWorkbookSheets DisplayName="Obtener hojas del libro Resumen" sap:VirtualizedContainerService.HintSize="518.4,32" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_1" Sheets="[SheetsResumen]" />
+            <Assign DisplayName="Existe hoja igual a falso" sap:VirtualizedContainerService.HintSize="518.4,69.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[ExisteHoja]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="recorre hojas a procesar" sap:VirtualizedContainerService.HintSize="518.4,402.4" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[SheetsResumen]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="x:String">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:String" Name="Lista" />
+                  </ActivityAction.Argument>
+                  <If Condition="[Lista.ToString.ToUpper.Equals(in_Sheet.ToUpper)]" DisplayName="Si la lista es igual al nombre del as hojas" sap:VirtualizedContainerService.HintSize="483.2,268" sap2010:WorkflowViewState.IdRef="If_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Assign DisplayName="Existe hoja a verdadero" sap:VirtualizedContainerService.HintSize="262.4,69.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Boolean">[ExisteHoja]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Then>
+                  </If>
+                </ActivityAction>
+              </ui:ForEach.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEach>
+            <If Condition="[ExisteHoja]" DisplayName="Si existe hoja procede a realizar sumatorias" sap:VirtualizedContainerService.HintSize="518.4,3068" sap2010:WorkflowViewState.IdRef="If_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Escribe sumatorias en hoja MX y MXNORTE" sap:VirtualizedContainerService.HintSize="401.6,2869.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Int32" Name="TamMx" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelReadRange AddHeaders="True" DataTable="[dt_SheetResumen]" DisplayName="Lectura de hoja MX y MXNORTE" sap:VirtualizedContainerService.HintSize="358,69" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[in_Sheet]">
+                    <ui:ExcelReadRange.Range>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:ExcelReadRange.Range>
+                  </ui:ExcelReadRange>
+                  <Assign DisplayName="Obtiene el tamaño de la tabla " sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[TamMx]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[dt_SheetResumen.Rows.Count]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:ExcelWriteCell Cell="[&quot;A&quot;+( TamMx+2).ToString]" DisplayName="Escribe Total" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="[in_Sheet]" Text="TOTAL" />
+                  <ui:ExcelWriteCell Cell="[&quot;B&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria monto_pago" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="[in_Sheet]" Text="[&quot;=SUM(B2:B&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;C&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria IP_MONTO" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="[in_Sheet]" Text="[&quot;=SUM(C2:C&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;D&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria IP_IEPS" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="[in_Sheet]" Text="[&quot;=SUM(D2:D&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;E&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria IP_IVA" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="[in_Sheet]" Text="[&quot;=SUM(E2:E&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;F&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria TB_Monto" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="[in_Sheet]" Text="[&quot;=SUM(F2:F&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;G&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria TB_IEPS" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_7" SheetName="[in_Sheet]" Text="[&quot;=SUM(G2:G&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;H&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria TB_IVA" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_8" SheetName="[in_Sheet]" Text="[&quot;=SUM(H2:H&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;I&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria TP_Monto" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_9" SheetName="[in_Sheet]" Text="[&quot;=SUM(I2:I&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;J&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria TP_IEPS" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_10" SheetName="[in_Sheet]" Text="[&quot;=SUM(J2:J&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;K&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria TP_IVA" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_11" SheetName="[in_Sheet]" Text="[&quot;=SUM(K2:K&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;L&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria HS_MONTO" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_12" SheetName="[in_Sheet]" Text="[&quot;=SUM(L2:L&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;M&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria HS_IEPS" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_13" SheetName="[in_Sheet]" Text="[&quot;=SUM(M2:M&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;N&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria HS_IVA" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_14" SheetName="[in_Sheet]" Text="[&quot;=SUM(N2:N&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;O&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria GO_MONTO" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_15" SheetName="[in_Sheet]" Text="[&quot;=SUM(O2:O&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;P&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria GO_IEPS" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_16" SheetName="[in_Sheet]" Text="[&quot;=SUM(P2:P&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;Q&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria GO_IVA" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_17" SheetName="[in_Sheet]" Text="[&quot;=SUM(Q2:Q&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;R&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria TERCEROS" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_18" SheetName="[in_Sheet]" Text="[&quot;=SUM(R2:R&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                  <ui:ExcelWriteCell Cell="[&quot;S&quot;+( TamMx+2).ToString]" DisplayName="Sumatoria PENDIENTES" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_19" SheetName="[in_Sheet]" Text="[&quot;=SUM(S2:S&quot;+(TamMx+1).ToString+&quot;)&quot;]" />
+                </Sequence>
+              </If.Then>
+            </If>
+            <ui:ExcelSaveWorkbook DisplayName="Guardar libro" sap:VirtualizedContainerService.HintSize="518.4,32" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_1" />
+            <ui:ExcelCloseWorkbook DisplayName="Cerrar libro" sap:VirtualizedContainerService.HintSize="518.4,69.6" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_2" Workbook="[Close]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ExcelCloseWorkbook>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ExcelApplicationScope>
+    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Lectura de Archivos excel crear resumen" sap:VirtualizedContainerService.HintSize="933.6,5498.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Workbook="[Close]" WorkbookPath="[in_RutaResumen]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Obtiene nombre de las hojas de archivo excel" sap:VirtualizedContainerService.HintSize="900,5379.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="scg:List(x:String)" Name="SheetsResumen" />
+              <Variable x:TypeArguments="x:Boolean" Name="ExisteHoja" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelGetWorkbookSheets DisplayName="Obtener hojas del libro de Resumen" sap:VirtualizedContainerService.HintSize="856.8,32" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_2" Sheets="[SheetsResumen]" />
+            <Assign DisplayName="Asigna Existe hoja a falso" sap:VirtualizedContainerService.HintSize="856.8,69.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[ExisteHoja]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Recorre la lista de las hoja de excel REsumen" sap:VirtualizedContainerService.HintSize="856.8,402.4" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[SheetsResumen]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="x:String">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:String" Name="Lista" />
+                  </ActivityAction.Argument>
+                  <If Condition="[Lista.ToString.ToUpper.Equals(in_Sheet.ToUpper)]" DisplayName="Si la lista es igual al nombre del as hojas" sap:VirtualizedContainerService.HintSize="483.2,268" sap2010:WorkflowViewState.IdRef="If_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Assign DisplayName="Existe hoja a verdadero" sap:VirtualizedContainerService.HintSize="262.4,69.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Boolean">[ExisteHoja]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Then>
+                  </If>
+                </ActivityAction>
+              </ui:ForEach.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEach>
+            <If Condition="[ExisteHoja]" DisplayName="Si existe hoja procede a realizar sumatorias" sap:VirtualizedContainerService.HintSize="856.8,4483.2" sap2010:WorkflowViewState.IdRef="If_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Escribe sumatorias en hoja MX y MXNORTE" sap:VirtualizedContainerService.HintSize="821,4285" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Double" Name="IpMonto" />
+                    <Variable x:TypeArguments="x:Double" Name="TpMonto" />
+                    <Variable x:TypeArguments="x:Double" Name="IpIeps" />
+                    <Variable x:TypeArguments="x:Double" Name="TpIeps" />
+                    <Variable x:TypeArguments="sd:DataTable" Name="dt_SumTabla" />
+                    <Variable x:TypeArguments="x:Double" Name="IpIva" />
+                    <Variable x:TypeArguments="x:Double" Name="TpIva" />
+                    <Variable x:TypeArguments="x:Double" Name="TbMonto" />
+                    <Variable x:TypeArguments="x:Double" Name="TbIva" />
+                    <Variable x:TypeArguments="x:Int32" Name="TamaSum" />
+                    <Variable x:TypeArguments="x:Double" Name="TbIeps" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelReadRange AddHeaders="False" DataTable="[dt_SumTabla]" DisplayName="Lectura de hoja MX y MXNORTE" sap:VirtualizedContainerService.HintSize="779,69" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="[in_Sheet]">
+                    <ui:ExcelReadRange.Range>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:ExcelReadRange.Range>
+                  </ui:ExcelReadRange>
+                  <Assign DisplayName="Obtiene tamaño de la tabla Mx y MxNorte" sap:VirtualizedContainerService.HintSize="779,70" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[TamaSum]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[dt_SumTabla.Rows.Count]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:FilterDataTable DataTable="[dt_SheetResumen]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="779,170" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_SheetResumen]" SelectColumnsMode="Keep">
+                    <ui:FilterDataTable.Filters>
+                      <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                        <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
+                          <ui:FilterOperationArgument.Column>
+                            <InArgument x:TypeArguments="x:Int32">[2]</InArgument>
+                          </ui:FilterOperationArgument.Column>
+                        </ui:FilterOperationArgument>
+                      </scg:List>
+                    </ui:FilterDataTable.Filters>
+                    <ui:FilterDataTable.SelectColumns>
+                      <scg:List x:TypeArguments="InArgument" Capacity="4">
+                        <x:Null />
+                      </scg:List>
+                    </ui:FilterDataTable.SelectColumns>
+                  </ui:FilterDataTable>
+                  <ui:MultipleAssign DisplayName="Obtiene las sumatorias de las columnas necesarias" sap:VirtualizedContainerService.HintSize="779,358" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[IpMonto]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">[dt_SheetResumen.AsEnumerable.Sum(Function(x)CDbl(x("Suma de IP_MONTO").ToString.Trim))]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[TpMonto]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">[dt_SheetResumen.AsEnumerable.Sum(Function(x)CDbl(x("Suma de TP_MONTO").ToString.Trim))]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[IpIeps]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">[dt_SheetResumen.AsEnumerable.Sum(Function(x)CDbl(x("Suma de IP_IEPS").ToString.Trim))]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[TpIeps]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">[dt_SheetResumen.AsEnumerable.Sum(Function(x)CDbl(x("Suma de TP_IEPS").ToString.Trim))]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[IpIva]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">[dt_SheetResumen.AsEnumerable.Sum(Function(x)CDbl(x("Suma de IP_IVA").ToString.Trim))]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[TpIva]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">[dt_SheetResumen.AsEnumerable.Sum(Function(x)CDbl(x("Suma de TP_IVA").ToString.Trim))]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[TbMonto]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">[dt_SheetResumen.AsEnumerable.Sum(Function(x)CDbl(x("Suma de TB_MONTO").ToString.Trim))]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[TbIva]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">[dt_SheetResumen.AsEnumerable.Sum(Function(x)CDbl(x("Suma de TB_IVA").ToString.Trim))]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[TbIeps]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">[dt_SheetResumen.AsEnumerable.Sum(Function(x)CDbl(x("Suma de TB_IEPS").ToString.Trim))]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MultipleAssign>
+                  <ui:ExcelWriteCell Cell="[&quot;A&quot;+( TamaSum+3).ToString]" DisplayName="Coloca Monto TP" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_20" SheetName="[in_Sheet]" Text="Monto TP" />
+                  <ui:ExcelWriteCell Cell="[&quot;C&quot;+( TamaSum+3).ToString]" DisplayName="Sumatoria de IPMonto" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_21" SheetName="[in_Sheet]" Text="[IpMonto.ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;I&quot;+( TamaSum+3).ToString]" DisplayName="Sumatoria de TpMonto" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_22" SheetName="[in_Sheet]" Text="[TpMonto.ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;M&quot;+( TamaSum+3).ToString]" DisplayName="Sumatoria IpMonto+ TpMonto" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_23" SheetName="[in_Sheet]" Text="[(IpMonto+TpMonto).ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;A&quot;+( TamaSum+4).ToString]" DisplayName="Coloca IEPS TP" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_24" SheetName="[in_Sheet]" Text="IEPS TP" />
+                  <ui:ExcelWriteCell Cell="[&quot;D&quot;+( TamaSum+4).ToString]" DisplayName="Sumatoria IpIeps" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_25" SheetName="[in_Sheet]" Text="[IpIeps.ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;J&quot;+( TamaSum+4).ToString]" DisplayName="Sumatoria TpIeps" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_26" SheetName="[in_Sheet]" Text="[TpIeps.ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;M&quot;+( TamaSum+4).ToString]" DisplayName="Sumatoria IpIeps+TpIeps" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_27" SheetName="[in_Sheet]" Text="[(IpIeps+TpIeps).ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;A&quot;+( TamaSum+5).ToString]" DisplayName="Coloca IVA TP" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_28" SheetName="[in_Sheet]" Text="IVA TP" />
+                  <ui:ExcelWriteCell Cell="[&quot;E&quot;+( TamaSum+5).ToString]" DisplayName="Sumatoria IpIva" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_29" SheetName="[in_Sheet]" Text="[IpIva.ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;K&quot;+( TamaSum+5).ToString]" DisplayName="Sumatoria TpIva" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_30" SheetName="[in_Sheet]" Text="[TpIva.ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;M&quot;+( TamaSum+5).ToString]" DisplayName="Sumatoria IpIva+TpIva" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_31" SheetName="[in_Sheet]" Text="[(IpIva+TpIva).ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;A&quot;+( TamaSum+8).ToString]" DisplayName="Colca Monto TB" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_32" SheetName="[in_Sheet]" Text="MONTO TB" />
+                  <ui:ExcelWriteCell Cell="[&quot;F&quot;+( TamaSum+8).ToString]" DisplayName="Sumatoria TbMonto" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_33" SheetName="[in_Sheet]" Text="[TbMonto.ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;M&quot;+( TamaSum+8).ToString]" DisplayName="Sumatoria IpMonto+TbMonto" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_34" SheetName="[in_Sheet]" Text="[(IpMonto+TbMonto).ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;A&quot;+( TamaSum+9).ToString]" DisplayName="Sumatoria IEPS TB" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_35" SheetName="[in_Sheet]" Text="IEPS TB" />
+                  <ui:ExcelWriteCell Cell="[&quot;G&quot;+( TamaSum+9).ToString]" DisplayName="Sumatoria TbIeps" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_36" SheetName="[in_Sheet]" Text="[TbIeps.ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;M&quot;+( TamaSum+9).ToString]" DisplayName="Sumatoria TpIeps" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_37" SheetName="[in_Sheet]" Text="[TpIeps.ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;A&quot;+( TamaSum+10).ToString]" DisplayName="Coloca IVA TB" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_38" SheetName="[in_Sheet]" Text="IVA TB" />
+                  <ui:ExcelWriteCell Cell="[&quot;H&quot;+( TamaSum+10).ToString]" DisplayName="Sumatoria TbIva" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_39" SheetName="[in_Sheet]" Text="[TbIva.ToString]" />
+                  <ui:ExcelWriteCell Cell="[&quot;M&quot;+( TamaSum+10).ToString]" DisplayName="Sumatoria IpIva+TbIva" sap:VirtualizedContainerService.HintSize="779,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_40" SheetName="[in_Sheet]" Text="[(IpIva+TbIva).ToString]" />
+                  <If Condition="[in_Sheet.Equals(&quot;MX&quot;)]" DisplayName="Si la hoja es MX coloca el 16%" sap:VirtualizedContainerService.HintSize="779,491" sap2010:WorkflowViewState.IdRef="If_4">
+                    <If.Then>
+                      <Sequence DisplayName="Validacion 16%" sap:VirtualizedContainerService.HintSize="400,324" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ExcelWriteCell Cell="[&quot;N&quot;+( TamaSum+4).ToString]" DisplayName="Sumatoria IpIeps" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_41" SheetName="[in_Sheet]" Text="[(IpMonto+TpMonto+IpIeps+TpIeps).ToString]" />
+                        <ui:ExcelWriteCell Cell="[&quot;O&quot;+( TamaSum+4).ToString]" DisplayName="Sumatoria IpIeps" sap:VirtualizedContainerService.HintSize="358,97" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_42" SheetName="[in_Sheet]" Text="[(IpMonto+TpMonto+IpIeps+TpIeps*.16).ToString]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <ui:LogMessage DisplayName="Log Message No existe hoja MX" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;No es hoja MX&quot;]" />
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </If.Then>
+            </If>
+            <ui:ExcelSaveWorkbook DisplayName="Guardar libro archivos" sap:VirtualizedContainerService.HintSize="857,32" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_2" />
+            <ui:ExcelCloseWorkbook DisplayName="Cerrar libro archivos " sap:VirtualizedContainerService.HintSize="857,69" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[Close]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ExcelCloseWorkbook>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ExcelApplicationScope>
+  </Sequence>
+</Activity>

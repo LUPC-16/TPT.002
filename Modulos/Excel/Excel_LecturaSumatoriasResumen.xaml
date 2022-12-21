@@ -1,26 +1,16 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Excel_LecturaSumatoriasResumen" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Excel_LecturaSumatoriasResumen" this:Excel_LecturaSumatoriasResumen.in_Sheet="MX" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_Archivo" Type="InArgument(x:String)" />
     <x:Property Name="in_Sheet" Type="InArgument(x:String)" />
-    <x:Property Name="in_NombreExcel" Type="InArgument(x:String)" />
     <x:Property Name="in_Resumen" Type="InArgument(x:String)" />
+    <x:Property Name="in_Ruta" Type="InArgument(x:String)" />
   </x:Members>
-  <this:Excel_LecturaSumatoriasResumen.in_Archivo>
+  <this:Excel_LecturaSumatoriasResumen.in_Ruta>
     <InArgument x:TypeArguments="x:String" />
-  </this:Excel_LecturaSumatoriasResumen.in_Archivo>
-  <this:Excel_LecturaSumatoriasResumen.in_Sheet>
-    <InArgument x:TypeArguments="x:String" />
-  </this:Excel_LecturaSumatoriasResumen.in_Sheet>
-  <this:Excel_LecturaSumatoriasResumen.in_NombreExcel>
-    <InArgument x:TypeArguments="x:String" />
-  </this:Excel_LecturaSumatoriasResumen.in_NombreExcel>
-  <this:Excel_LecturaSumatoriasResumen.in_Resumen>
-    <InArgument x:TypeArguments="x:String" />
-  </this:Excel_LecturaSumatoriasResumen.in_Resumen>
+  </this:Excel_LecturaSumatoriasResumen.in_Ruta>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,859</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1480,2877.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_LecturaSumatoriasResumen_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -57,7 +47,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+    <sco:Collection x:TypeArguments="AssemblyReference">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -80,11 +70,13 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
-    </scg:List>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Descripcion: Estas sumas corresponden a los totales de TOTAL PLAY&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;TB_Monto&#xA;TB_IEPS&#xA;TB_IVA (Siempre debe ser 0)&#xA;&#xA;Estos totales corresponden a TOTAL BOX&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;HS_Monto&#xA;HS_IEPS&#xA;HS_IVA &#xA;&#xA;Estos totales corresponden a HOGAR SEGURO&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;GO_Monto&#xA;GO_IEPS&#xA;GO_IVA " DisplayName="Excel_LecturaSumatoriasResumen" sap:VirtualizedContainerService.HintSize="376,794" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Descripcion: Estas sumas corresponden a los totales de TOTAL PLAY&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;TB_Monto&#xA;TB_IEPS&#xA;TB_IVA (Siempre debe ser 0)&#xA;&#xA;Estos totales corresponden a TOTAL BOX&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;HS_Monto&#xA;HS_IEPS&#xA;HS_IVA &#xA;&#xA;Estos totales corresponden a HOGAR SEGURO&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;GO_Monto&#xA;GO_IEPS&#xA;GO_IVA " DisplayName="Excel_LecturaSumatoriasResumen" sap:VirtualizedContainerService.HintSize="632,2740.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="Close" />
+      <Variable x:TypeArguments="x:String" Name="NombreExcel" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -92,7 +84,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message inicia lectura sumatorias resumen" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicia:Excel_LecturaSumatoriasResumen&quot;]">
+    <ui:LogMessage DisplayName="Log Message inicia lectura sumatorias resumen" sap:VirtualizedContainerService.HintSize="588.8,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicia:Excel_LecturaSumatoriasResumen&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -100,238 +92,277 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Abre archivo Pagos" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[Close]" WorkbookPath="[in_Archivo]">
-      <ui:ExcelApplicationScope.Body>
-        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="588.8,2364.8" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[directory.GetFiles(in_Ruta+&quot;Pagos Procesados&quot;)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+            <DelegateInArgument x:TypeArguments="x:String" Name="Archivo" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Genera las sumatorias de resumen" sap:VirtualizedContainerService.HintSize="473,1608" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:Double" Name="MontoPago" />
-              <Variable x:TypeArguments="x:Double" Name="TpiMonto" />
-              <Variable x:TypeArguments="x:Double" Name="TpiIeps" />
-              <Variable x:TypeArguments="x:Double" Name="TpiIva" />
-              <Variable x:TypeArguments="x:Double" Name="TbMonto" />
-              <Variable x:TypeArguments="x:Double" Name="Tbieps" />
-              <Variable x:TypeArguments="x:Double" Name="TbIva" />
-              <Variable x:TypeArguments="x:Double" Name="TptMonto" />
-              <Variable x:TypeArguments="x:Double" Name="TptIeps" />
-              <Variable x:TypeArguments="x:Double" Name="TptIva" />
-              <Variable x:TypeArguments="x:Double" Name="HsMonto" />
-              <Variable x:TypeArguments="x:Double" Name="HsIeps" />
-              <Variable x:TypeArguments="x:Double" Name="HsIva" />
-              <Variable x:TypeArguments="x:Double" Name="GoMonto" />
-              <Variable x:TypeArguments="x:Double" Name="GoIeps" />
-              <Variable x:TypeArguments="x:Double" Name="GoIva" />
-              <Variable x:TypeArguments="x:Double" Name="Terceros" />
-              <Variable x:TypeArguments="x:Double" Name="Pendiente" />
-              <Variable x:TypeArguments="x:String" Name="Parte" />
-              <Variable x:TypeArguments="sd:DataTable" Name="dt_ResumenC" />
-              <Variable x:TypeArguments="sd:DataTable" Name="dt_TablaResumenC" />
-            </Sequence.Variables>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,2230.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_ResumenC]" DisplayName="Lee la hoja que corresponde " sap:VirtualizedContainerService.HintSize="431,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[in_Sheet]" />
-            <ui:BuildDataTable DataTable="[dt_TablaResumenC]" DisplayName="Genera una tabla  de Resumen" sap:VirtualizedContainerService.HintSize="431,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Partes&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_MONTO_PAGO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TERCEROS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_PENDIENTE&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-            <ui:MultipleAssign DisplayName="Obtiene la sumatoria de cada columana " sap:VirtualizedContainerService.HintSize="431,658" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[MontoPago]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(7))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[TpiMonto]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(9))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[TpiIeps]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(10))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[TpiIva]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(11))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[TbMonto]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(12))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[Tbieps]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(13))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[TbIva]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(14))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[TptMonto]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(15))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[TptIeps]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(16))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[TptIva]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(17))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[HsMonto]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(18))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[HsIeps]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(19))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[HsIva]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(20))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[GoMonto]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(21))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[GoIeps]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(22))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[GoIva]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(23))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[Terceros]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(24))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Double">[Pendiente]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(25))),2)]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[Parte]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[in_NombreExcel]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
+            <Assign sap:VirtualizedContainerService.HintSize="510.4,69.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[NombreExcel]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[path.GetFileNameWithoutExtension(Archivo)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Abre archivo Pagos" sap:VirtualizedContainerService.HintSize="510.4,2029.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[Close]" WorkbookPath="[Archivo]">
+              <ui:ExcelApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Genera las sumatorias de resumen" sap:VirtualizedContainerService.HintSize="476.8,1910.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Double" Name="MontoPago" />
+                      <Variable x:TypeArguments="x:Double" Name="TpiMonto" />
+                      <Variable x:TypeArguments="x:Double" Name="TpiIeps" />
+                      <Variable x:TypeArguments="x:Double" Name="TpiIva" />
+                      <Variable x:TypeArguments="x:Double" Name="TbMonto" />
+                      <Variable x:TypeArguments="x:Double" Name="Tbieps" />
+                      <Variable x:TypeArguments="x:Double" Name="TbIva" />
+                      <Variable x:TypeArguments="x:Double" Name="TptMonto" />
+                      <Variable x:TypeArguments="x:Double" Name="TptIeps" />
+                      <Variable x:TypeArguments="x:Double" Name="TptIva" />
+                      <Variable x:TypeArguments="x:Double" Name="HsMonto" />
+                      <Variable x:TypeArguments="x:Double" Name="HsIeps" />
+                      <Variable x:TypeArguments="x:Double" Name="HsIva" />
+                      <Variable x:TypeArguments="x:Double" Name="GoMonto" />
+                      <Variable x:TypeArguments="x:Double" Name="GoIeps" />
+                      <Variable x:TypeArguments="x:Double" Name="GoIva" />
+                      <Variable x:TypeArguments="x:Double" Name="Terceros" />
+                      <Variable x:TypeArguments="x:Double" Name="Pendiente" />
+                      <Variable x:TypeArguments="x:String" Name="Parte" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="dt_ResumenC" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="dt_TablaResumenC" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_ResumenC]" DisplayName="Lee la hoja que corresponde " sap:VirtualizedContainerService.HintSize="433.6,69.6" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[in_Sheet]" />
+                    <ui:FilterDataTable DataTable="[dt_ResumenC]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="433.6,172" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_ResumenC]" SelectColumnsMode="Keep">
+                      <ui:FilterDataTable.Filters>
+                        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                          <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
+                            <ui:FilterOperationArgument.Column>
+                              <InArgument x:TypeArguments="x:Int32">[1]</InArgument>
+                            </ui:FilterOperationArgument.Column>
+                          </ui:FilterOperationArgument>
+                        </scg:List>
+                      </ui:FilterDataTable.Filters>
+                      <ui:FilterDataTable.SelectColumns>
+                        <scg:List x:TypeArguments="InArgument" Capacity="4">
+                          <x:Null />
+                        </scg:List>
+                      </ui:FilterDataTable.SelectColumns>
+                    </ui:FilterDataTable>
+                    <ui:BuildDataTable DataTable="[dt_TablaResumenC]" DisplayName="Genera una tabla  de Resumen" sap:VirtualizedContainerService.HintSize="433.6,69.6" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Partes&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_MONTO_PAGO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TERCEROS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_PENDIENTE&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+                    <ui:MultipleAssign DisplayName="Obtiene la sumatoria de cada columana " sap:VirtualizedContainerService.HintSize="433.6,672.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[MontoPago]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(7))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[TpiMonto]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(9))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[TpiIeps]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(10))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[TpiIva]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(11))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[TbMonto]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(12))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[Tbieps]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(13))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[TbIva]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(14))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[TptMonto]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(15))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[TptIeps]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(16))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[TptIva]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(17))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[HsMonto]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(18))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[HsIeps]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(19))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[HsIva]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(20))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[GoMonto]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(21))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[GoIeps]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(22))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[GoIva]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(23))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[Terceros]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(24))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Double">[Pendiente]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(dt_ResumenC.AsEnumerable().Sum(Function(row) Convert.ToDouble(row(25))),2)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[Parte]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[NombreExcel]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:MultipleAssign>
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Parte,MontoPago,TpiMonto,TpiIeps,TpiIva,TbMonto,Tbieps,TbIva,TptMonto,TptIeps,TptIva,HsMonto,HsIeps,HsIva,GoMonto,GoIeps,GoIva,Terceros,Pendiente}]" DataTable="[dt_TablaResumenC]" DisplayName="Los agrega a la tabla Resumen" sap:VirtualizedContainerService.HintSize="433.6,197.6" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:AddDataRow>
+                    <ui:AppendRange DataTable="[dt_TablaResumenC]" DisplayName="Copia las tablas dinamicas a nuevo excel Resumen Pagos " sap:VirtualizedContainerService.HintSize="433.6,125.6" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="[in_Sheet]" WorkbookPath="[in_Resumen]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:AppendRange>
+                    <ui:ClearDataTable DataTable="[dt_TablaResumenC]" DisplayName="Clear Data Table del Resumen" sap:VirtualizedContainerService.HintSize="433.6,90.4" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
+                    <ui:ExcelSaveWorkbook DisplayName="Save Workbook Resumen" sap:VirtualizedContainerService.HintSize="433.6,32" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_1" />
+                    <ui:ExcelCloseWorkbook DisplayName="Close Workbook Resumen" sap:VirtualizedContainerService.HintSize="433.6,69.6" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[Close]" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ExcelApplicationScope.Body>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-            </ui:MultipleAssign>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Parte,MontoPago,TpiMonto,TpiIeps,TpiIva,TbMonto,Tbieps,TbIva,TptMonto,TptIeps,TptIva,HsMonto,HsIeps,HsIva,GoMonto,GoIeps,GoIva,Terceros,Pendiente}]" DataTable="[dt_TablaResumenC]" DisplayName="Los agrega a la tabla Resumen" sap:VirtualizedContainerService.HintSize="431,185" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:AddDataRow>
-            <ui:AppendRange DataTable="[dt_TablaResumenC]" DisplayName="Copia las tablas dinamicas a nuevo excel Resumen Pagos " sap:VirtualizedContainerService.HintSize="431,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="[in_Sheet]" WorkbookPath="[in_Resumen]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:AppendRange>
-            <ui:ClearDataTable DataTable="[dt_TablaResumenC]" DisplayName="Clear Data Table del Resumen" sap:VirtualizedContainerService.HintSize="431,79" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
-            <ui:ExcelSaveWorkbook DisplayName="Save Workbook Resumen" sap:VirtualizedContainerService.HintSize="431,22" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_1" />
-            <ui:ExcelCloseWorkbook DisplayName="Close Workbook Resumen" sap:VirtualizedContainerService.HintSize="431,59" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[Close]" />
+            </ui:ExcelApplicationScope>
           </Sequence>
         </ActivityAction>
-      </ui:ExcelApplicationScope.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:ExcelApplicationScope>
-    <ui:LogMessage DisplayName="Log Message finaliza lectura sumatorias resumen" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Finaliza:Excel_LecturaSumatoriasResumen&quot;]">
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <ui:LogMessage DisplayName="Log Message finaliza lectura sumatorias resumen" sap:VirtualizedContainerService.HintSize="588.8,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Finaliza:Excel_LecturaSumatoriasResumen&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>

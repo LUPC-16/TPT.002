@@ -14,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1240,1045</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1480,1384.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_CopiarPlantilla_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -85,7 +85,7 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="El Bot crea una copia de la Plantilla para el resumen." DisplayName="Excel_CopiarPlantilla" sap:VirtualizedContainerService.HintSize="526,980" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="El Bot crea una copia de la Plantilla para el resumen." DisplayName="Excel_CopiarPlantilla" sap:VirtualizedContainerService.HintSize="526.4,1320" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="ExistePlantilla" />
     </Sequence.Variables>
@@ -95,7 +95,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message  inicia copiar plantilla" sap:VirtualizedContainerService.HintSize="484,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicia:Excel_CopiarPlantilla&quot;]">
+    <ui:LogMessage DisplayName="Log Message  inicia copiar plantilla" sap:VirtualizedContainerService.HintSize="483.2,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicia:Excel_CopiarPlantilla&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -103,7 +103,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <Assign DisplayName="Asigna ruta de carpeta Resumen" sap:VirtualizedContainerService.HintSize="484,70" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Asigna ruta de carpeta Resumen" sap:VirtualizedContainerService.HintSize="483.2,69.6" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_Resumen]</OutArgument>
       </Assign.To>
@@ -111,10 +111,10 @@
         <InArgument x:TypeArguments="x:String">[in_RutaPlantilla]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists Archivo Resumen" Exists="[ExistePlantilla]" sap:VirtualizedContainerService.HintSize="484,99" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[out_Resumen]" PathType="File" />
-    <If Condition="[not ExistePlantilla]" DisplayName="Si no existe copia la plantilla" sap:VirtualizedContainerService.HintSize="484,359" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists Archivo Resumen" Exists="[ExistePlantilla]" sap:VirtualizedContainerService.HintSize="483.2,100" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[out_Resumen]" PathType="File" />
+    <If Condition="[not ExistePlantilla]" DisplayName="Si no existe copia la plantilla" sap:VirtualizedContainerService.HintSize="483.2,363.2" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <ui:CopyFile ContinueOnError="{x:Null}" Destination="[out_Resumen]" DisplayName="Copia la plantilla para generar una por resumen" sap:VirtualizedContainerService.HintSize="334,162" sap2010:WorkflowViewState.IdRef="CopyFile_1" Path="[in_Ruta]">
+        <ui:CopyFile ContinueOnError="{x:Null}" Destination="[out_Resumen]" DisplayName="Copia la plantilla para generar una por resumen" sap:VirtualizedContainerService.HintSize="333.6,164.8" sap2010:WorkflowViewState.IdRef="CopyFile_1" Path="[in_Ruta]">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -124,6 +124,8 @@
         </ui:CopyFile>
       </If.Then>
     </If>
-    <ui:LogMessage DisplayName="Log Message  finaliza copiar plantilla" sap:VirtualizedContainerService.HintSize="484,101" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Finaliza:Excel_CopiarPlantilla&quot;]" />
+    <ui:WriteCell Cell="A2" DisplayName="Cambiar nombre  MX" sap:VirtualizedContainerService.HintSize="483.2,125.6" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="MX" Text="[&quot;RESUMEN COBRANZA &quot;+(Now.AddMonths(-1).ToString(&quot;MMMM&quot;,new System.Globalization.CultureInfo(&quot;es-ES&quot;))).ToUpper+&quot; &quot;+(now.Year.ToString)]" WorkbookPath="[out_Resumen]" />
+    <ui:WriteCell Cell="A2" DisplayName="Cambiar nombre MX.Norte" sap:VirtualizedContainerService.HintSize="483.2,125.6" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="MX_NORTE" Text="[&quot;RESUMEN COBRANZA &quot;+(Now.AddMonths(-1).ToString(&quot;MMMM&quot;,new System.Globalization.CultureInfo(&quot;es-ES&quot;))).ToUpper+&quot; &quot;+(now.Year.ToString)]" WorkbookPath="[out_Resumen]" />
+    <ui:LogMessage DisplayName="Log Message  finaliza copiar plantilla" sap:VirtualizedContainerService.HintSize="483.2,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Finaliza:Excel_CopiarPlantilla&quot;]" />
   </Sequence>
 </Activity>

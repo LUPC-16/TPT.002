@@ -14,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>646,1705</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1013,1241</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Python_ObtenerUUIDS_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -83,10 +83,9 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Python</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="TPT.002.009 Obtener UUID Total Play&#xA;TPT.002.010 Obtener UUID Total box&#xA;TPT.002.011 Obtener UUID Hogar seguro&#xA;TPT.002.012 Obtener UUID TP GO&#xA;&#xA;Descripcion: El Bot filtra por la empresa &quot;TPGO&quot; ,&quot;HOGAR SEGURO&quot;,&quot;TPT&quot;,&quot;TTB&quot;en ambos archivos y realiza la busqueda a traves del &quot;ITEM_NO&quot; &#xA;&#xA;Una vez que obtiene las filas que coinciden. procede a validar que la suma de la facturas de TPGO correspondan a la suma de los ingresos de &quot;TPGO&quot; &#xA;&#xA;Ejemplo: Suma de (GO_MONTO + GO_IEPS + GO_IVA) sea igual a (Las facturas)&#xA;&#xA;Y obtiene:&#xA;-UUID de factura (Varias)&#xA;-UUID complementario&#xA;-MONTO_APLICADO&#xA;&#xA;Si los montos no coinciden:  Colocar UUID de factura y UUID comple... + la diferencia de montos&#xA;&#xA;En caso de no econtrar un UUID: Colocar  &quot;UUID no ecnontrado&quot; &#xA;&#xA;" DisplayName="Python_ObtenerUUIDS" sap:VirtualizedContainerService.HintSize="432,1640" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="TPT.002.009 Obtener UUID Total Play&#xA;TPT.002.010 Obtener UUID Total box&#xA;TPT.002.011 Obtener UUID Hogar seguro&#xA;TPT.002.012 Obtener UUID TP GO&#xA;&#xA;Descripcion: El Bot filtra por la empresa &quot;TPGO&quot; ,&quot;HOGAR SEGURO&quot;,&quot;TPT&quot;,&quot;TTB&quot;en ambos archivos y realiza la busqueda a traves del &quot;ITEM_NO&quot; &#xA;&#xA;Una vez que obtiene las filas que coinciden. procede a validar que la suma de la facturas de TPGO correspondan a la suma de los ingresos de &quot;TPGO&quot; &#xA;&#xA;Ejemplo: Suma de (GO_MONTO + GO_IEPS + GO_IVA) sea igual a (Las facturas)&#xA;&#xA;Y obtiene:&#xA;-UUID de factura (Varias)&#xA;-UUID complementario&#xA;-MONTO_APLICADO&#xA;&#xA;Si los montos no coinciden:  Colocar UUID de factura y UUID comple... + la diferencia de montos&#xA;&#xA;En caso de no econtrar un UUID: Colocar  &quot;UUID no ecnontrado&quot; &#xA;&#xA;" DisplayName="Python_ObtenerUUIDS" sap:VirtualizedContainerService.HintSize="412,1176" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="PathCobranza" />
     </Sequence.Variables>
@@ -96,8 +95,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Inicia modulo TotalPlay y TotalBox, TPGo, hogar seguro" sap:VirtualizedContainerService.HintSize="370,116" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicia:Python_ObtenerUUIDS&quot;]" />
-    <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[in_RutaCodigoPy]" DisplayName="Llama al proceso Codigo Py" FileName="PY" sap:VirtualizedContainerService.HintSize="370,97" sap2010:WorkflowViewState.IdRef="StartProcess_2">
+    <ui:LogMessage DisplayName="Log Message Inicia modulo TotalPlay y TotalBox, TPGo, hogar seguro" sap:VirtualizedContainerService.HintSize="370,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Inicia:Python_ObtenerUUIDS&quot;]" />
+    <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[in_RutaCodigoPy]" DisplayName="Llama al proceso Codigo Py" FileName="PY" sap:VirtualizedContainerService.HintSize="370,97" sap2010:WorkflowViewState.IdRef="StartProcess_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -133,6 +132,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:Delete>
-    <ui:LogMessage DisplayName="Log Message  finaliza modulo TotalPlay y TotalBox, TPGo, hogar seguro" sap:VirtualizedContainerService.HintSize="370,116" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Finaliza:Python_ObtenerUUIDS&quot;]" />
+    <ui:LogMessage DisplayName="Log Message  finaliza modulo TotalPlay y TotalBox, TPGo, hogar seguro" sap:VirtualizedContainerService.HintSize="370,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Finaliza:Python_ObtenerUUIDS&quot;]" />
   </Sequence>
 </Activity>

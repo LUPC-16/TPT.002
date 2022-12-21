@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1224,10964</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1166,10961</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_CrearResumen_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -90,7 +90,7 @@
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="TPT.002.016 Crear resume&#xA;El Bot realiza la suma de los totales de las siguientes columnas:&#xA;&#xA;IP_Monto + TP_Monto&#xA;IP_IEPS + TP_IEPS&#xA;IP_IVA + TP_IVA&#xA;&#xA;Estas sumas corresponden a los totales de TOTAL PLAY&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;TB_Monto&#xA;TB_IEPS&#xA;TB_IVA (Siempre debe ser 0)&#xA;&#xA;Estos totales corresponden a TOTAL BOX&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;HS_Monto&#xA;HS_IEPS&#xA;HS_IVA &#xA;&#xA;Estos totales corresponden a HOGAR SEGURO&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;GO_Monto&#xA;GO_IEPS&#xA;GO_IVA &#xA;&#xA;Estos totales corresponden a TP GO" DisplayName="Excel_CrearResumen" sap:VirtualizedContainerService.HintSize="1177.6,10899.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="TPT.002.016 Crear resume&#xA;El Bot realiza la suma de los totales de las siguientes columnas:&#xA;&#xA;IP_Monto + TP_Monto&#xA;IP_IEPS + TP_IEPS&#xA;IP_IVA + TP_IVA&#xA;&#xA;Estas sumas corresponden a los totales de TOTAL PLAY&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;TB_Monto&#xA;TB_IEPS&#xA;TB_IVA (Siempre debe ser 0)&#xA;&#xA;Estos totales corresponden a TOTAL BOX&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;HS_Monto&#xA;HS_IEPS&#xA;HS_IVA &#xA;&#xA;Estos totales corresponden a HOGAR SEGURO&#xA;&#xA;El ususario toma los totales de las siguientes columnas:&#xA;GO_Monto&#xA;GO_IEPS&#xA;GO_IVA &#xA;&#xA;Estos totales corresponden a TP GO" DisplayName="Excel_CrearResumen" sap:VirtualizedContainerService.HintSize="1176,10896" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="RutaPagos" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_SheetResumen" />
@@ -104,7 +104,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message  inicia Crear Resumen" sap:VirtualizedContainerService.HintSize="1134.4,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Inicia:Excel_CrearResumen&quot;]">
+    <ui:LogMessage DisplayName="Log Message  inicia Crear Resumen" sap:VirtualizedContainerService.HintSize="1134,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Inicia:Excel_CrearResumen&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -112,7 +112,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <Assign DisplayName="Obtiene la ruta de archivos de Cobranza" sap:VirtualizedContainerService.HintSize="1134.4,69.6" sap2010:WorkflowViewState.IdRef="Assign_8">
+    <Assign DisplayName="Obtiene la ruta de archivos de Cobranza" sap:VirtualizedContainerService.HintSize="1134,70" sap2010:WorkflowViewState.IdRef="Assign_8">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[RutaPagos]</OutArgument>
       </Assign.To>
@@ -120,13 +120,13 @@
         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_RutaCobranza)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[Indice]" DisplayName="RecorreRutas de pagos" sap:VirtualizedContainerService.HintSize="1134.4,989.6" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[RutaPagos]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[Indice]" DisplayName="RecorreRutas de pagos" sap:VirtualizedContainerService.HintSize="1134,989" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[RutaPagos]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="File" />
           </ActivityAction.Argument>
-          <Flowchart DisplayName="Crear Resumen" sap:VirtualizedContainerService.HintSize="1097.6,855.2" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+          <Flowchart DisplayName="Crear Resumen" sap:VirtualizedContainerService.HintSize="1098,855" sap2010:WorkflowViewState.IdRef="Flowchart_1">
             <Flowchart.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dt_TablaResumen" />
               <Variable x:TypeArguments="sd:DataTable" Name="dt_SalidaResumen" />
@@ -137,7 +137,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 <av:Point x:Key="ShapeLocation">510,2.5</av:Point>
-                <av:Size x:Key="ShapeSize">60,75.2</av:Size>
+                <av:Size x:Key="ShapeSize">60,75</av:Size>
                 <av:PointCollection x:Key="ConnectorLocation">570,40 600,40 600,45 619,45</av:PointCollection>
                 <x:Double x:Key="Height">809.04</x:Double>
                 <x:Double x:Key="Width">1064</x:Double>
@@ -146,23 +146,23 @@
             <Flowchart.StartNode>
               <x:Reference>__ReferenceID8</x:Reference>
             </Flowchart.StartNode>
-            <FlowDecision x:Name="__ReferenceID5" Condition="[not (Path.GetFileName(File).Contains(&quot;~&quot;) or Path.GetFileName(File).Contains(&quot;$&quot;))]" DisplayName="Es un archivo temporal?" sap:VirtualizedContainerService.HintSize="132,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+            <FlowDecision x:Name="__ReferenceID5" Condition="[not (Path.GetFileName(File).Contains(&quot;~&quot;) or Path.GetFileName(File).Contains(&quot;$&quot;))]" DisplayName="Es un archivo temporal?" sap:VirtualizedContainerService.HintSize="132,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <av:Point x:Key="ShapeLocation">684,116.5</av:Point>
-                  <av:Size x:Key="ShapeSize">132,87.2</av:Size>
+                  <av:Size x:Key="ShapeSize">132,87</av:Size>
                   <av:PointCollection x:Key="TrueConnector">684,160 540,160 540,226.5</av:PointCollection>
                   <av:PointCollection x:Key="FalseConnector">816,160 900,160 900,214.02</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <FlowDecision.True>
-                <FlowDecision x:Name="__ReferenceID0" Condition="[NombreExcel.Contains(&quot;PAGOS&quot;) and NombreExcel.Contains(&quot;USD&quot;)=False]" DisplayName="Contiene Pagos y USD?" sap:VirtualizedContainerService.HintSize="128,87.2" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                <FlowDecision x:Name="__ReferenceID0" Condition="[NombreExcel.Contains(&quot;PAGOS&quot;) and NombreExcel.Contains(&quot;USD&quot;)=False]" DisplayName="Contiene Pagos y USD?" sap:VirtualizedContainerService.HintSize="128,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <av:Point x:Key="ShapeLocation">476,226.5</av:Point>
-                      <av:Size x:Key="ShapeSize">128,87.2</av:Size>
+                      <av:Size x:Key="ShapeSize">128,87</av:Size>
                       <av:PointCollection x:Key="TrueConnector">476,270 350,270 350,334.5</av:PointCollection>
                       <av:PointCollection x:Key="FalseConnector">604,270 720,270 720,324.5</av:PointCollection>
                     </scg:Dictionary>
@@ -172,17 +172,17 @@
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">250,334.5</av:Point>
-                          <av:Size x:Key="ShapeSize">200,62.4</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">350,396.9 350,429</av:PointCollection>
+                          <av:Size x:Key="ShapeSize">200,61</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">350,395.5 350,429</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Abre archivo Pagos" sap:VirtualizedContainerService.HintSize="510.4,1190.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[Close]" WorkbookPath="[File]">
+                      <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Abre archivo Pagos" sap:VirtualizedContainerService.HintSize="510,1181" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[Close]" WorkbookPath="Temporal\PAGOS_2022NOV\PAGOS_20220621_1.xlsx">
                         <ui:ExcelApplicationScope.Body>
                           <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Genera tabla dinamica pra excel Resumen" sap:VirtualizedContainerService.HintSize="476.8,1071.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                            <Sequence DisplayName="Genera tabla dinamica pra excel Resumen" sap:VirtualizedContainerService.HintSize="476,1062" sap2010:WorkflowViewState.IdRef="Sequence_2">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="sd:DataTable" Name="dt_Resumen" />
                               </Sequence.Variables>
@@ -191,14 +191,14 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:ExcelReadRange AddHeaders="True" DataTable="[dt_Resumen]" DisplayName="Lee la hoja que corresponde " sap:VirtualizedContainerService.HintSize="433.6,69.6" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[in_Sheet]">
+                              <ui:ExcelReadRange AddHeaders="True" DataTable="[dt_Resumen]" DisplayName="Lee la hoja que corresponde " sap:VirtualizedContainerService.HintSize="434,69" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[in_Sheet]">
                                 <ui:ExcelReadRange.Range>
                                   <InArgument x:TypeArguments="x:String">
                                     <Literal x:TypeArguments="x:String" Value="" />
                                   </InArgument>
                                 </ui:ExcelReadRange.Range>
                               </ui:ExcelReadRange>
-                              <ui:RemoveDataRow Row="{x:Null}" DataTable="[dt_Resumen]" DisplayName="Remueve fila sumatorias" sap:VirtualizedContainerService.HintSize="433.6,197.6" sap2010:WorkflowViewState.IdRef="RemoveDataRow_1" RowIndex="[dt_Resumen.Rows.Count-1]">
+                              <ui:RemoveDataRow Row="{x:Null}" DataTable="[dt_Resumen]" DisplayName="Remueve fila sumatorias" sap:VirtualizedContainerService.HintSize="434,195" sap2010:WorkflowViewState.IdRef="RemoveDataRow_1" RowIndex="[dt_Resumen.Rows.Count-1]">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -206,7 +206,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:RemoveDataRow>
-                              <ui:RemoveDataRow Row="{x:Null}" DataTable="[dt_Resumen]" DisplayName="Remove filas validaiones " sap:VirtualizedContainerService.HintSize="433.6,197.6" sap2010:WorkflowViewState.IdRef="RemoveDataRow_2" RowIndex="[dt_Resumen.Rows.Count-1]">
+                              <ui:RemoveDataRow Row="{x:Null}" DataTable="[dt_Resumen]" DisplayName="Remove filas validaiones " sap:VirtualizedContainerService.HintSize="434,195" sap2010:WorkflowViewState.IdRef="RemoveDataRow_2" RowIndex="[dt_Resumen.Rows.Count-1]">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -214,8 +214,8 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:RemoveDataRow>
-                              <ui:BuildDataTable DataTable="[dt_TablaResumen]" DisplayName="Genera una tabla " sap:VirtualizedContainerService.HintSize="433.6,69.6" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Etiquetas_de_Fila&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_MONTO_PAGO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TERCEROS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_PENDIENTE&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-                              <ui:FilterDataTable DataTable="[dt_Resumen]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="433.6,172" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_Resumen]" SelectColumnsMode="Keep">
+                              <ui:BuildDataTable DataTable="[dt_TablaResumen]" DisplayName="Genera una tabla " sap:VirtualizedContainerService.HintSize="434,69" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Etiquetas_de_Fila&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_MONTO_PAGO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_IP_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TB_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TP_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_HS_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_MONTO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_IEPS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_GO_IVA&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_TERCEROS&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Suma_de_PENDIENTE&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+                              <ui:FilterDataTable DataTable="[dt_Resumen]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="434,170" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_Resumen]" SelectColumnsMode="Keep">
                                 <ui:FilterDataTable.Filters>
                                   <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                                     <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EMPTY">
@@ -231,7 +231,7 @@
                                   </scg:List>
                                 </ui:FilterDataTable.SelectColumns>
                               </ui:FilterDataTable>
-                              <Assign DisplayName="Obtiene tabla dinamica de Resumen" sap:VirtualizedContainerService.HintSize="433.6,73.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+                              <Assign DisplayName="Obtiene tabla dinamica de Resumen" sap:VirtualizedContainerService.HintSize="434,74" sap2010:WorkflowViewState.IdRef="Assign_1">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="sd:DataTable">[dt_TablaResumen]</OutArgument>
                                 </Assign.To>
@@ -288,11 +288,11 @@ Select dt_TablaResumen.LoadDataRow(New Object(){
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">250,494.5</av:Point>
-                                  <av:Size x:Key="ShapeSize">200,62.4</av:Size>
-                                  <av:PointCollection x:Key="ConnectorLocation">350,556.9 350,584.5</av:PointCollection>
+                                  <av:Size x:Key="ShapeSize">200,61</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">350,555.5 350,584.5</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:AppendRange DataTable="[dt_SalidaResumen]" DisplayName="Copia las tablas dinamicas a nuevo excel Resumen Pagos " sap:VirtualizedContainerService.HintSize="200,62.4" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="[in_Sheet]" WorkbookPath="[in_RutaResumen]">
+                              <ui:AppendRange DataTable="[dt_SalidaResumen]" DisplayName="Copia las tablas dinamicas a nuevo excel Resumen Pagos " sap:VirtualizedContainerService.HintSize="200,61" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="[in_Sheet]" WorkbookPath="[in_RutaResumen]">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -305,10 +305,10 @@ Select dt_TablaResumen.LoadDataRow(New Object(){
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">250,584.5</av:Point>
-                                      <av:Size x:Key="ShapeSize">200,62.4</av:Size>
+                                      <av:Size x:Key="ShapeSize">200,61</av:Size>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:ClearDataTable DataTable="[dt_TablaResumen]" DisplayName="Limpia la tabla Resumen" sap:VirtualizedContainerService.HintSize="200,62.4" sap2010:WorkflowViewState.IdRef="ClearDataTable_1">
+                                  <ui:ClearDataTable DataTable="[dt_TablaResumen]" DisplayName="Limpia la tabla Resumen" sap:VirtualizedContainerService.HintSize="200,61" sap2010:WorkflowViewState.IdRef="ClearDataTable_1">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -329,10 +329,10 @@ Select dt_TablaResumen.LoadDataRow(New Object(){
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">620,324.5</av:Point>
-                          <av:Size x:Key="ShapeSize">200,62.4</av:Size>
+                          <av:Size x:Key="ShapeSize">200,61</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Es un archivo UUIDS" sap:VirtualizedContainerService.HintSize="200,62.4" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Es un archivo UUIDS&quot;]">
+                      <ui:LogMessage DisplayName="Es un archivo UUIDS" sap:VirtualizedContainerService.HintSize="200,61" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Es un archivo UUIDS&quot;]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -348,10 +348,10 @@ Select dt_TablaResumen.LoadDataRow(New Object(){
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">800,214.02</av:Point>
-                      <av:Size x:Key="ShapeSize">200,62.4</av:Size>
+                      <av:Size x:Key="ShapeSize">200,61</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Es un archivo temporal" sap:VirtualizedContainerService.HintSize="200,62.4" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Es un archivo temporal&quot;]">
+                  <ui:LogMessage DisplayName="Es un archivo temporal" sap:VirtualizedContainerService.HintSize="200,61" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Es un archivo temporal&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -370,11 +370,11 @@ Select dt_TablaResumen.LoadDataRow(New Object(){
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">619,10</av:Point>
-                  <av:Size x:Key="ShapeSize">262.4,69.6</av:Size>
+                  <av:Size x:Key="ShapeSize">262,70</av:Size>
                   <av:PointCollection x:Key="ConnectorLocation">750,80 750,116.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign DisplayName="Asigna nombre de excel" sap:VirtualizedContainerService.HintSize="262.4,69.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+              <Assign DisplayName="Asigna nombre de excel" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_9">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[NombreExcel]</OutArgument>
                 </Assign.To>
